@@ -28,4 +28,16 @@ describe("Game", function () {
       Should(spyLog).eql(['<My Name> was added', 'They are player number 1'])
     })
   })
+  it("calls howManyPlayer 3 times when adding a player", () => {
+    var calls = 0
+    let game = new Game()
+    patch(
+      game,
+      "howManyPlayers",
+      () => { calls +=1 ; return 1;} ,
+      () => {
+      game.add("<My Name>")
+      Should(calls).eql(3)
+    })
+  })
 });
