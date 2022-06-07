@@ -40,4 +40,7 @@ describe("Game", function () {
       Should(calls).eql(3)
     })
   })
+
+  // Can't monkey patch constructor scoped variables like "didPlayerWin"
+
 });
